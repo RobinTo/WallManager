@@ -11,6 +11,7 @@ namespace AutoBackground
     {
         string pageAddress = "http://www.reddit.com/r/";
         string redditSearchString = "<a class=\"title \" href=\"";
+        string imgurSearchString = " <div class=\"item view album-view-image-link\">";
         List<int> progress = new List<int>();
 
         public bool DownloadFile(string remoteFilename, string localFilename)
@@ -41,6 +42,25 @@ namespace AutoBackground
                 position = htmlSource.IndexOf(redditSearchString, position+1);
                 if(position < htmlSource.Length)
                     images.Add(htmlSource.Substring(position + redditSearchString.Length, htmlSource.IndexOf("\"", position + redditSearchString.Length) -position - redditSearchString.Length));
+            }
+
+            return images;
+        }
+
+        public List<string> getImageURLsImgurAlbum(string album)
+        {
+            List<string> images = new List<string>();
+            
+            string htmlSource = getHTML(album + "/layout/blog");
+
+            string test = "<div class=\"item view album-view-image-link\">\n            <a href=\"";
+            int position = 1;
+
+            while (position > 0 && position < htmlSource.Length)
+            {
+                position = htmlSource.IndexOf(test, position + 1);
+                if (position < htmlSource.Length)
+                    images.Add(htmlSource.Substring(position + test.Length, htmlSource.IndexOf("\"", position + test.Length) - position - test.Length));
             }
 
             return images;

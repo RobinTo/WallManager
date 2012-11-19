@@ -135,8 +135,7 @@ namespace AutoBackground
         // Change pictureBox image on mousescroll.
         void Form1_MouseWheel(object sender, MouseEventArgs e)
         {
-            currentImage += (int)Math.Floor((double)(e.Delta / 120.0));
-            ChangeImage(currentImage);
+            ChangeImage(currentImage + (int)Math.Floor((double)(e.Delta / 120.0)));
         }
 
         // Clear the timer textbox when it gets focus.
@@ -297,7 +296,11 @@ namespace AutoBackground
                 {
                     try
                     {
-                        List<string> posts = ir.getImageURLs(subReddits);
+                        List<string> posts;
+                        if (subReddits.Contains("imgur"))
+                            posts = ir.getImageURLsImgurAlbum(subReddits);
+                        else
+                            posts = ir.getImageURLs(subReddits); ;
                         images = new List<string>();
                         foreach (string s in posts)
                         {
@@ -346,7 +349,7 @@ namespace AutoBackground
         public bool TryToDownload(string s, string extension)
         {
             int tries = 0;
-            while (tries < 10)
+            while (tries < 2)
             {
                 if (!ir.DownloadFile(s, sm.GetDefaultFolder() + "\\" + counter + extension))
                     tries++;
@@ -354,7 +357,7 @@ namespace AutoBackground
                 {
                     sm.AddImageDownloaded(new DownloadedImage(sm.GetDefaultFolder() + "\\" + counter + extension, s));
                     counter++;
-                    tries = 10;
+                    tries = 2;
                     return true;
                 }
             }
