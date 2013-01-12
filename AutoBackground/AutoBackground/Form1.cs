@@ -261,7 +261,7 @@ namespace AutoBackground
                 subRedditSuggestions.Add("wallpaper+wallpapers");
                 subRedditSuggestions.Add("MinimalWallpaper");
                 subRedditSuggestions.Add("BigWallpapers");
-                subRedditSuggestions.Add("NSFW_Wallpapers");
+                //subRedditSuggestions.Add("NSFW_Wallpapers");
                 subRedditSuggestions.Add("wallpaper");
                 subRedditSuggestions.Add("wallpapers");
                 testDialog.SetComboBoxDataSource(subRedditSuggestions);

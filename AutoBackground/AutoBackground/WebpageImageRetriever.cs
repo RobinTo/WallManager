@@ -52,8 +52,8 @@ namespace AutoBackground
             List<string> images = new List<string>();
             
             string htmlSource = getHTML(album + "/layout/blog");
-
-            string test = "<div class=\"item view album-view-image-link\">\n            <a href=\"";
+            htmlSource.Trim();
+            string test = "<div class=\"item view album-view-image-link\">\n<a href=\"";
             int position = 1;
 
             while (position > 0 && position < htmlSource.Length)
