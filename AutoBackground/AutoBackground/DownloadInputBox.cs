@@ -56,5 +56,10 @@ namespace AutoBackground
             textBox1.Text = comboBox1.SelectedItem.ToString();
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

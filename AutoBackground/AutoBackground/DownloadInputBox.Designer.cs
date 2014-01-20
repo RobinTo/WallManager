@@ -32,7 +32,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -72,20 +71,10 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Suggestions:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(491, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "You can also enter an imgur album address like http://imgur.com/a/mHPp1 - just ch" +
-                "ange unique code.";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 69);
+            this.label4.Location = new System.Drawing.Point(12, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(311, 13);
             this.label4.TabIndex = 6;
@@ -96,10 +85,10 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 108);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(520, 13);
+            this.label3.Size = new System.Drawing.Size(392, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Note: Timed random changes, if download is checked will download the subreddit or" +
-                " album last entered here.";
+            this.label3.Text = "Download on timed random changes will download from subreddits last used here.";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // DownloadInputBox
             // 
@@ -108,7 +97,6 @@
             this.ClientSize = new System.Drawing.Size(541, 131);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
@@ -126,7 +114,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
     }
