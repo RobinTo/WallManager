@@ -1,6 +1,14 @@
 WallManager
 ===========
 
+##Outdated
+
+If you are interested in a wallpaper manager, check out WallpaperManager2.0, which is WIP.
+
+______
+
+CSharp
+
 Personal project, downloads wallpapers from subreddits and changes desktop wallpapers to selected ones or randomly. Supports multiple monitors if side by side.
 ______
 
